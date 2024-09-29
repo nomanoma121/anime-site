@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
 
 // サーバー側でデータを取得
 export default async function Home() {
@@ -18,11 +19,11 @@ export default async function Home() {
     }
   `;
 
-  const response = await fetch('https://graphql.anilist.co', {
-    method: 'POST',
+  const response = await fetch("https://graphql.anilist.co", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify({ query }),
   });
@@ -30,7 +31,6 @@ export default async function Home() {
   const { data } = await response.json();
 
   const animes = data?.Page?.media;
-
 
   return (
     <div>
@@ -40,7 +40,7 @@ export default async function Home() {
           <li key={anime.title.native}>
             <h2>{anime.title.native}</h2>
             <img src={anime.coverImage.large} alt={anime.title.native} />
-            <p><a href={anime.siteUrl}>公式サイト</a></p>
+            <Link href={`/${anime.title.native}`}>詳細をみる</Link>
           </li>
         ))}
       </ul>
