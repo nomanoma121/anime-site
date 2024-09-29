@@ -1,12 +1,13 @@
 import React from "react";
-import Link from "next/link";
+import AnimeCard from "../components/AnimeCard";
 
 // サーバー側でデータを取得
 export default async function Home() {
   const query = `
     query {
       Page(page: 1, perPage: 10) {
-        media(season: FALL, seasonYear: 2024, type: ANIME) {
+        media(season: FALL, seasonYear: 2024, type: ANIME, sort: POPULARITY_DESC) {
+          id
           title {
             native
           }
@@ -37,11 +38,7 @@ export default async function Home() {
       <h1>2024年秋アニメ</h1>
       <ul>
         {animes.map((anime) => (
-          <li key={anime.title.native}>
-            <h2>{anime.title.native}</h2>
-            <img src={anime.coverImage.large} alt={anime.title.native} />
-            <Link href={`/${anime.title.native}`}>詳細をみる</Link>
-          </li>
+          <AnimeCard key={anime.id} anime={anime}/>
         ))}
       </ul>
     </div>
