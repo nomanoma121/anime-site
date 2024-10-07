@@ -1,16 +1,29 @@
-import React from 'react'
-import Link from "next/link"
+import Link from "next/link";
+import styles from "./AnimeCard.module.css";
 
 function AnimeCard({ anime }) {
+  const genres = anime.genres.slice(0, 4);
+
   return (
-    <div>
-      <img src={anime.coverImage.large}/>
-      <h1>{anime.title.native}</h1>
-      <div>
-        <Link href={`/${anime.title.native}`}>View Detail</Link>
+    <div className={styles.cardContainer}>
+        <div className={styles.imgContainer}>
+          <img className={styles.image} src={anime.coverImage.extraLarge} />
+        </div>
+      <div className={styles.text}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.animeTitle}>{anime.title.native}</h1>
+        </div>
+        <div className={styles.genres}>
+          {genres.map((e) => (
+            <div className={styles.genre} key={e}>{e}</div>
+          ))}
+        </div>
       </div>
+      <Link href={`/${anime.title.native}`}>
+        <div className={styles.button}>View Detail</div>
+      </Link>
     </div>
-  )
+  );
 }
 
-export default AnimeCard
+export default AnimeCard;

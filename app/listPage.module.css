@@ -1,0 +1,38 @@
+.pageTitle {
+  font-size: 35px;
+  font-weight: 900;
+  text-align: center;
+  margin: 40px;
+  color: #6b21a8;
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+
+@media (min-width: 370px) {
+  .cardList {
+    width: 370px;
+  }
+}
+
+@media (min-width: 740px) {
+  .cardList {
+    width: 740px;
+  }
+}
+
+@media (min-width: 1110px) {
+  .cardList {
+    width: 1110px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .cardList {
+    width: 1480px;
+  }
+}

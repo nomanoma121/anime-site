@@ -2,18 +2,44 @@
 .headerTitle {
   color: #9333EA;
   float: left;
-  margin: 0;
-  padding: 0;
+  margin: 25px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .header {
-  background-color: green;
-  height: 80px;
+  height: 75px;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.mainInput {
-  margin: 0;
+.input {
+  margin-top: 18px;
+  margin-left: 5px;
+  height: 40px;
+  width: 500px;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid rgb(155, 155, 155);
+  transition: 0.3s;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 3px rgb(155, 155, 155);
+}
+
+.select {
+  margin-top: 18px;
+  margin-left: 5px;
+  height: 40px;
+  width: 100px;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid rgb(155, 155, 155);
+  transition: 0.3s;
+}
+
+.select:focus {
+  box-shadow: 0 0 0 3px rgb(155, 155, 155);
 }

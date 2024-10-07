@@ -1,20 +1,19 @@
-import React from "react";
 import AnimeCard from "../components/AnimeCard";
+import styles from "./listPage.module.css";
 
-// サーバー側でデータを取得
 export default async function Home() {
   const query = `
     query {
-      Page(page: 1, perPage: 10) {
+      Page(page: 1, perPage: 20) {
         media(season: FALL, seasonYear: 2024, type: ANIME, sort: POPULARITY_DESC) {
           id
           title {
             native
           }
           coverImage {
-            large
+            extraLarge
           }
-          siteUrl
+          genres
         }
       }
     }
@@ -32,15 +31,16 @@ export default async function Home() {
   const { data } = await response.json();
 
   const animes = data?.Page?.media;
+  const numberOfAnime = animes.lenght;
 
   return (
     <div>
-      <h1>2024年秋アニメ</h1>
-      <ul>
+      <h1 className={styles.pageTitle}>Popular Anime</h1>
+      <div className={styles.cardList}>
         {animes.map((anime) => (
-          <AnimeCard key={anime.id} anime={anime}/>
+          <AnimeCard key={anime.id} anime={anime} length={numberOfAnime}/>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

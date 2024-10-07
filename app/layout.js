@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import "./global.css";
 
 export const metadata = {
   title: 'Next.js',
@@ -8,10 +9,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <head>
+         <link
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body style={{backgroundColor: "#F5E2FF"}}>
         <Header />
         {children}
-        </body>
+      </body>
     </html>
   )
 }

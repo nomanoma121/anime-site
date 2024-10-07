@@ -1,0 +1,62 @@
+.cardContainer {
+  background-color: white;
+  height: 460px;
+  width: 350px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+} 
+
+.text {
+  height: 105px;
+}
+
+.image {
+  width: 100%;
+}
+
+.imgContainer {
+  overflow: hidden;
+  height: 300px;
+}
+
+.animeTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6b21a8;
+}
+
+.titleContainer {
+  margin-left: 12px;
+  padding-top: 15px;
+}
+
+.button {
+  background-color: #6b21a8;
+  width: 330px;
+  height: 40px;
+  border-radius: 7px;
+  margin: 0 auto;
+  margin-top: 5px;
+  text-align: center;
+  padding-top: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.genre {
+  display: inline-block;
+  font-size: 12px;
+  background-color: #fce7f3;
+  color: #9d174d;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 8px 5px;
+  font-weight: 500;
+}
+
+.genres {
+  margin-left: 6px;
+}
+
