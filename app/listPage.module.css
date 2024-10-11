@@ -21,6 +21,52 @@
   z-index: 9999; 
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+  /* background-color: green; */
+  margin-bottom: 200px;
+}
+
+.changePageButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background-color: #6b21a8;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.changePageButton span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.changePageButton:hover {
+  background-color: #8e44ad;
+}
+
+.changePageButton:active {
+  transform: scale(0.95);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageNumber {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6b21a8;
+}
+
 @media (min-width: 370px) {
   .cardList {
     width: 370px;
