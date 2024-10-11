@@ -5,20 +5,10 @@ import styles from "./Header.module.css";
 import { useRouter } from "next/router";
 
 function Header() {
-  const {
-    updateSearchTerm,
-    updateYear,
-    updateSeason,
-    searchTerm,
-    selectedYear,
-    selectedSeason,
-  } = useContext(SearchContext);
+  const { updateSearchTerm, updateYear, updateSeason } = useContext(SearchContext);
   const [input, setInput] = useState("");
   const currentYear = new Date().getFullYear();
-  const years = Array.from(
-    { length: currentYear - 2000 + 4 },
-    (_, i) => 2000 + i
-  );
+  const years = Array.from({ length: currentYear - 2000 + 4 }, (_, i) => 2000 + i);
   years.reverse();
 
   const router = useRouter();

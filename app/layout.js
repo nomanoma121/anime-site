@@ -1,6 +1,6 @@
 import "./global.css";
-import Header from "../components/Header";
-import { SearchProvider } from "./context/SearchContext";  // 追加
+import Header from "./components/Header";
+import { SearchProvider } from "./context/SearchContext"; // 追加
 
 export const metadata = {
   title: "Anime List",
@@ -10,8 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{backgroundColor: "#F5E2FF"}}>
-        <SearchProvider>  {/* SearchProviderで全体をラップ */}
+      <body style={{ backgroundColor: "#F5E2FF" }}>
+        <SearchProvider>
+          {" "}
+          {/* SearchProviderで全体をラップ */}
           <Header />
           {children}
         </SearchProvider>
