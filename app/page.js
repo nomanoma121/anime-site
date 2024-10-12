@@ -6,7 +6,6 @@ import styles from "./listPage.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { StyledEngineProvider } from "@mui/material";
 
 export default function Home() {
   const { searchTerm, selectedYear, selectedSeason } =

@@ -36,6 +36,7 @@ function Header() {
   };
   
   const backHome = () => {
+    setInput("");
     updateSeason(null);
     updateSearchTerm(null);
     updateYear(null);
