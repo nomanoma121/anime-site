@@ -3,7 +3,6 @@ import { useContext, useState } from "react";
 import { SearchContext } from "../context/SearchContext";
 import styles from "./Header.module.css";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 function Header() {
   const { updateSearchTerm, updateYear, updateSeason } =
