@@ -18,7 +18,7 @@ export default function Home() {
   const fetchAnimeData = async () => {
     setLoading(true);
     const query = `
-      query($search: String, $seasonYear: Int, $season: MediaSeason, $page: Int,) {
+      query($search: String, $seasonYear: Int, $season: MediaSeason, $page: Int) {
         Page(page: $page, perPage: 10) {
           media(search: $search, season: $season, seasonYear: $seasonYear, type: ANIME, sort: POPULARITY_DESC, countryOfOrigin: "JP",) {
             id
