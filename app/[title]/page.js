@@ -2,8 +2,7 @@
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import styles from "./detailPage.module.css";
-import { Rating, Skeleton } from "@mui/material";
-import { StayCurrentLandscapeSharp } from "@mui/icons-material";
+import { Rating } from "@mui/material";
 export default function AnimeDetail({ params }) {
   const { title } = params;
   const decodedTitle = decodeURIComponent(title);
@@ -37,16 +36,6 @@ export default function AnimeDetail({ params }) {
           }
         }
         format
-        relations {
-          nodes {
-            title {
-              native
-            }
-            coverImage {
-              small
-            }
-          }
-        }
         characters(role: MAIN) {
           nodes {
             name {
