@@ -34,12 +34,17 @@ function Header() {
     updateSeason(e.target.value);
     router.push("/");
   };
+  
+  const backHome = () => {
+    updateSeason(null);
+    updateSearchTerm(null);
+    updateYear(null);
+    router.push("/");
+  }
 
   return (
     <div className={styles.header}>
-      <Link href="/">
-        <h1 className={styles.headerTitle}>AnimeList</h1>
-      </Link>
+      <h1 className={styles.headerTitle} onClick={() => backHome()}>AnimeList</h1>
       <input
         className={styles.input}
         placeholder="Search anime..."

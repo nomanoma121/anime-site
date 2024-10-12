@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./AnimeCard.module.css";
 
-function AnimeCard({ anime }) {
+function AnimeCard({ anime, onLoading }) {
   const genres = anime.genres.slice(0, 4);
 
   return (
@@ -19,7 +19,7 @@ function AnimeCard({ anime }) {
           ))}
         </div>
       </div>
-      <Link href={`/${anime.title.native}`}>
+      <Link href={`/${anime.title.native}`} onClick={() => onLoading()}>
         <div className={styles.button}>View Detail</div>
       </Link>
     </div>

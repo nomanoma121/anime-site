@@ -12,11 +12,13 @@
 }
 
 .imageContainer {
+  padding: 0;
   margin: 30px;
   width: 460px;
   height: 650px;
   border-radius: 10px;
   overflow: hidden;
+  /* background-color: green; */
 }
 
 .animeImage {
@@ -105,4 +107,20 @@
 
 .characterImage {
   border-radius: 10px;
+}
+
+.spinner {
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: 9999; 
+}
+
+.recommendation {
+  background-color: green;
+  width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
 }

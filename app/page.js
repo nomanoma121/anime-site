@@ -6,6 +6,7 @@ import styles from "./listPage.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { StyledEngineProvider } from "@mui/material";
 
 export default function Home() {
   const { searchTerm, selectedYear, selectedSeason } =
@@ -81,6 +82,8 @@ export default function Home() {
     }
   };
 
+  const onLoading = () => setLoading(true);
+
   // 検索結果表示/で仕切る
   const searchArray = [];
   let searchValue = "";
@@ -93,7 +96,7 @@ export default function Home() {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       {loading && (
         <div className={styles.spinner}>
           <CircularProgress />
@@ -106,25 +109,29 @@ export default function Home() {
       )}
       <div className={styles.cardList}>
         {animes.length > 0
-          ? animes.map((anime) => <AnimeCard key={anime?.id} anime={anime} />)
-          : (!loading && !firstRender) && <p>No anime found</p>}
+          ? animes.map((anime) => (
+              <AnimeCard key={anime?.id} anime={anime} onLoading={onLoading} />
+            ))
+          : !loading && !firstRender && <p>No anime found</p>}
       </div>
-      {(!firstRender) &&
+      {!firstRender && (
         <div className={styles.pagination}>
-        <div
-          className={`${styles.changePageButton} ${currentPage === 1 && styles.disabled}`}
-          onClick={handlePreviousPage}
-        >
-          <KeyboardArrowLeftIcon />
-          <span>Previous</span>
+          <div
+            className={`${styles.changePageButton} ${
+              currentPage === 1 && styles.disabled
+            }`}
+            onClick={handlePreviousPage}
+          >
+            <KeyboardArrowLeftIcon />
+            <span>Previous</span>
+          </div>
+          <div className={styles.pageNumber}>Page {currentPage}</div>
+          <div className={styles.changePageButton} onClick={handleNextPage}>
+            <span>Next</span>
+            <KeyboardArrowRightIcon />
+          </div>
         </div>
-        <div className={styles.pageNumber}>Page {currentPage}</div>
-        <div className={styles.changePageButton} onClick={handleNextPage}>
-          <span>Next</span>
-          <KeyboardArrowRightIcon />
-        </div>
-      </div>
-}
+      )}
     </div>
   );
 }
