@@ -14,6 +14,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [firstRender, setFirstRender] = useState(true);
+  const [searchValue, setSearchValue] = useState("");
 
   const fetchAnimeData = async () => {
     setLoading(true);
@@ -63,6 +64,7 @@ export default function Home() {
   useEffect(() => {
     fetchAnimeData();
     setCurrentPage(1);
+    handleSearchValue();
   }, [searchTerm, selectedYear, selectedSeason]);
 
   useEffect(() => {
@@ -83,16 +85,14 @@ export default function Home() {
 
   const onLoading = () => setLoading(true);
 
-  // 検索結果表示/で仕切る
-  const searchArray = [];
-  let searchValue = "";
-  if (searchTerm) searchArray.push(searchTerm);
-  if (selectedYear) searchArray.push(selectedYear);
-  if (selectedSeason) searchArray.push(selectedSeason);
-  searchArray.forEach((e, index) => {
-    if (index != 0) e = "/" + e;
-    searchValue += e;
-  });
+  const handleSearchValue = () => {
+    const searchArray = [];
+    if (searchTerm) searchArray.push(searchTerm);
+    if (selectedYear) searchArray.push(selectedYear);
+    if (selectedSeason) searchArray.push(selectedSeason);
+    // 検索結果表示/で仕切る
+    setSearchValue(searchArray.join("/"));
+  }
 
   return (
     <div className={styles.container}>
@@ -101,7 +101,7 @@ export default function Home() {
           <CircularProgress />
         </div>
       )}
-      {searchTerm ? (
+      {searchValue ? (
         <h1 className={styles.pageTitle}>Search: {searchValue}</h1>
       ) : (
         <h1 className={styles.pageTitle}>Latest Popular Anime</h1>
